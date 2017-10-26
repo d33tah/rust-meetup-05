@@ -47,6 +47,6 @@ mod tests {
 
     #[test]
     fn test_integer_one() {
-        assert_eq!(Int(1), decode("i1e").unwrap());
+        assert_eq!(BencodedObject::Int(1), decode("i1e".into()).unwrap());
     }
 }
