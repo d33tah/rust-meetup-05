@@ -56,6 +56,7 @@ mod tests {
         decode("z".into()).unwrap();
     }
 
+    #[test]
     fn test_integer_but_not_integer() {
         decode("iie".into()).unwrap();
     }
