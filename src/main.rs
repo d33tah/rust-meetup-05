@@ -9,7 +9,7 @@ enum BencodedObject {
 }
 
 fn decode(encoded: String) -> Result<BencodedObject,String> {
-    let mut bencoded_type: Option<u8>;
+    let mut bencoded_type: Option<char>;
     for (n, c) in encoded.chars().enumerate() {
         if n == 0 {
             bencoded_type = Some(c);
