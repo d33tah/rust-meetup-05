@@ -10,10 +10,10 @@ enum BencodedObject {
 }
 
 impl Hash for BencodedObject {
-    fn hash<H: Hasher>(ref &self, state: &mut H) {
+    fn hash<H: Hasher>(&self, state: &mut H) {
         match *self {
-            BencodedObject::Int(x) => x.hash(state),
-            BencodedObject::ByteString(x) => x.hash(state),
+            BencodedObject::Int(ref x) => x.hash(state),
+            BencodedObject::ByteString(ref x) => x.hash(state),
             _ => {}
         }
     }
