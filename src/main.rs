@@ -14,7 +14,7 @@ impl Hash for BencodedObject {
         match *self {
             BencodedObject::Int(ref x) => x.hash(state),
             BencodedObject::ByteString(ref x) => x.hash(state),
-            BencodedObject::List(ref x) => { for n in x.iter() { n.hash(state) } }
+            BencodedObject::List(ref x) => { for n in x { n.hash(state) } }
             _ => {}
         }
     }
