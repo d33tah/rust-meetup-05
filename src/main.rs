@@ -4,7 +4,8 @@ use std::collections::HashMap;
 enum BencodedObject {
     Int(i32),
     ByteString(String),
-    List(Vec<BencodedObject>), //    Dict(HashMap<BencodedObject, BencodedObject>)
+    List(Vec<BencodedObject>),
+    Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
 fn decode(encoded: String) -> Result<BencodedObject, String> {
@@ -74,11 +75,13 @@ mod tests {
     }
 
     #[test]
+    #[should_panic]
     fn test_empty_buffer() {
         decode("ie".into()).unwrap();
     }
 
     #[test]
+    #[should_panic]
     fn test_empty_string() {
         decode("".into()).unwrap();
     }
