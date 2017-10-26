@@ -1,7 +1,7 @@
 use std::hash::{Hash, Hasher};
 use std::collections::HashMap;
 
-#[derive(Debug,PartialEq,Eq,Hash)]
+#[derive(Debug,PartialEq,Eq)]
 enum BencodedObject {
     Int(i32),
     ByteString(String),
