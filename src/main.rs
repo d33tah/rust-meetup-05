@@ -4,7 +4,7 @@ use std::collections::HashMap;
 enum BencodedObject {
     Int(i32),
     ByteString(String),
-    List(Vec<Box<BencodedObject>>),
+    List(Vec<BencodedObject>),
     Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
