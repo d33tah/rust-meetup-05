@@ -5,7 +5,7 @@ enum BencodedObject {
     Int(i32),
     ByteString(String),
     List(Vec<Box<BencodedObject>>),
-    Dict(std::map
+    Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
 fn main() {
