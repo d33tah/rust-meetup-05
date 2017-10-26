@@ -25,7 +25,6 @@ impl Hash for BencodedObject {
                     v.hash(state);
                 }
             }
-            _ => {}
         }
     }
 }
