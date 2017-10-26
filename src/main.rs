@@ -7,5 +7,8 @@ enum BencodedObject {
     Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
+fn decode(encoded: String) -> BencodedObject {
+}
+
 fn main() {
 }
