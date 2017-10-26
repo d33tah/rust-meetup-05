@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-#[derive(Debug,PartialEq,Eq)]
+#[derive(Debug,PartialEq,Eq,Hash)]
 enum BencodedObject {
     Int(i32),
     ByteString(String),
