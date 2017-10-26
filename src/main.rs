@@ -1,5 +1,6 @@
 use std::hash::{Hash, Hasher};
 use std::collections::HashMap;
+use std::env;
 
 #[derive(Debug,PartialEq,Eq)]
 enum BencodedObject {
@@ -60,7 +61,9 @@ fn decode(encoded: String) -> Result<BencodedObject, String> {
 }
 
 fn main() {
-    println!("{:?}", decode("i42e".into()));
+    for argument in env::args() {
+        println!("{:?}", decode(argument.into()));
+    }
 }
 
 #[cfg(test)]
