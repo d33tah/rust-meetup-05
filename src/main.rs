@@ -38,5 +38,5 @@ fn decode(encoded: String) -> Result<BencodedObject, String> {
 }
 
 fn main() {
-    println!("{:?}", decode("i2e".into()));
+    println!("{:?}", decode("i42e".into()));
 }
