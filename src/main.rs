@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-use std::error::Error;
 
 #[derive(Debug)]
 enum BencodedObject {
@@ -9,7 +8,7 @@ enum BencodedObject {
 //    Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
-fn decode(encoded: String) -> Result<BencodedObject,Error> {
+fn decode(encoded: String) -> Result<BencodedObject,String> {
     let mut bencoded_type: char;
     for (i, n) in encoded.chars().enumerate() {
 
