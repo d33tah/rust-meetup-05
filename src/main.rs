@@ -17,7 +17,7 @@ fn decode(encoded: String) -> Result<BencodedObject,String> {
         }
         match bencoded_type {
             Some('i') => {
-                buf.append(c);
+                buf.push(c);
             },
             None => if (n > 1) { return Err("Nie ustawiono typu".into()) }
         }
