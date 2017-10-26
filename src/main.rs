@@ -13,6 +13,7 @@ fn decode(encoded: String) -> Result<BencodedObject, String> {
     for (n, c) in encoded.chars().enumerate() {
         if n == 0 {
             bencoded_type = Some(c);
+            continue;
         }
         match bencoded_type {
             Some('i') => {
