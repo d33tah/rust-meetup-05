@@ -8,6 +8,7 @@ enum BencodedObject {
 }
 
 fn decode(encoded: String) -> BencodedObject {
+    BencodedObject(1)
 }
 
 fn main() {
