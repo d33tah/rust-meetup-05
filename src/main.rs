@@ -4,11 +4,10 @@ use std::collections::HashMap;
 enum BencodedObject {
     Int(i32),
     ByteString(String),
-    List(Vec<BencodedObject>),
-//    Dict(HashMap<BencodedObject, BencodedObject>)
+    List(Vec<BencodedObject>), //    Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
-fn decode(encoded: String) -> Result<BencodedObject,String> {
+fn decode(encoded: String) -> Result<BencodedObject, String> {
     let mut bencoded_type: Option<char> = None;
     let mut buf: Vec<char>;
     for (n, c) in encoded.chars().enumerate() {
@@ -18,8 +17,14 @@ fn decode(encoded: String) -> Result<BencodedObject,String> {
         match bencoded_type {
             Some('i') => {
                 buf.push(c);
-            },
-            None => if (n > 1) { return Err("Nie ustawiono typu".into()) }
+            }
+            Some(_) => return Err("Niespodziewany typ".into()),
+            None => {
+                if (n > 1) {
+                    return Err("Nie ustawiono typu".into());
+                }
+            }
+
         }
     }
     Ok(BencodedObject::Int(1))
