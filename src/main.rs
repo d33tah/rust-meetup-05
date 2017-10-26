@@ -63,7 +63,14 @@ mod tests {
     }
 
     #[test]
+    #[should_panic]
     fn test_integer_missing_e() {
         decode("i1".into()).unwrap();
+    }
+
+    #[test]
+    #[should_panic]
+    fn test_empty_buffer() {
+        decode("ie".into()).unwrap();
     }
 }
