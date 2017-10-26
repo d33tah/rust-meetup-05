@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::error::Error;
 
 #[derive(Debug)]
 enum BencodedObject {
