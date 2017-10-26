@@ -57,7 +57,13 @@ mod tests {
     }
 
     #[test]
+    #[should_panic]
     fn test_integer_but_not_integer() {
         decode("iie".into()).unwrap();
+    }
+
+    #[test]
+    fn test_integer_missing_e() {
+        decode("i1".into()).unwrap();
     }
 }
