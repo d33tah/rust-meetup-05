@@ -16,7 +16,11 @@ fn decode(encoded: String) -> Result<BencodedObject, String> {
         }
         match bencoded_type {
             Some('i') => {
-                buf.push(c);
+                if c != 'e' {
+                    buf.push(c);
+                } else {
+                    let s: String = buf.into_iter().collect();
+                }
             }
             Some(_) => return Err("Niespodziewany typ".into()),
             None => {
