@@ -15,6 +15,7 @@ impl Hash for BencodedObject {
             BencodedObject::Int(ref x) => x.hash(state),
             BencodedObject::ByteString(ref x) => x.hash(state),
             BencodedObject::List(ref x) => { for n in x { n.hash(state) } }
+            BencodedObject::Dict(ref x) => { for (k, v) in x { k.hash(state); v.hash(state); } }
             _ => {}
         }
     }
