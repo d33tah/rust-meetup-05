@@ -12,8 +12,8 @@ enum BencodedObject {
 impl Hash for BencodedObject {
     fn hash<H: Hasher>(&self, state: &mut H) {
         match self {
-            Int(x) => x.hash(state),
-            ByteString(x) => x.hash(state),
+            BencodedObject::Int(x) => x.hash(state),
+            BencodedObject::ByteString(x) => x.hash(state),
             _ => {}
         }
     }
