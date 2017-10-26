@@ -13,5 +13,5 @@ fn decode(encoded: String) -> BencodedObject {
 }
 
 fn main() {
-    println!("{}", decode("i1e"));
+    println!("{?:}", decode("i1e"));
 }
