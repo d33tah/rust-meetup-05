@@ -10,12 +10,15 @@ enum BencodedObject {
 
 fn decode(encoded: String) -> Result<BencodedObject,String> {
     let mut bencoded_type: Option<char> = None;
+    let mut buf: Vec<char>;
     for (n, c) in encoded.chars().enumerate() {
         if n == 0 {
             bencoded_type = Some(c);
         }
         match bencoded_type {
-            Some(x) => {},
+            Some('i') => {
+                buf.append(c);
+            },
             None => if (n > 1) { return Err("Nie ustawiono typu".into()) }
         }
     }
