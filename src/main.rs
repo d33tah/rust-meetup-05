@@ -6,7 +6,7 @@ enum BencodedObject {
     Int(i32),
     ByteString(String),
     List(Vec<BencodedObject>),
-    Dict(HashMap<BencodedObject, BencodedObject>)
+    Dict(HashMap<BencodedObject, BencodedObject>),
 }
 
 impl Hash for BencodedObject {
@@ -14,12 +14,20 @@ impl Hash for BencodedObject {
         match *self {
             BencodedObject::Int(ref x) => x.hash(state),
             BencodedObject::ByteString(ref x) => x.hash(state),
-            BencodedObject::List(ref x) => { for n in x { n.hash(state) } }
-            BencodedObject::Dict(ref x) => { for (k, v) in x { k.hash(state); v.hash(state); } }
+            BencodedObject::List(ref x) => {
+                for n in x {
+                    n.hash(state)
+                }
+            }
+            BencodedObject::Dict(ref x) => {
+                for (k, v) in x {
+                    k.hash(state);
+                    v.hash(state);
+                }
+            }
             _ => {}
         }
     }
-
 }
 
 fn decode(encoded: String) -> Result<BencodedObject, String> {
@@ -37,7 +45,7 @@ fn decode(encoded: String) -> Result<BencodedObject, String> {
                 } else {
                     let s: String = buf.iter().collect();
                     let i = s.parse::<i32>().unwrap();
-                    return Ok(BencodedObject::Int(i))
+                    return Ok(BencodedObject::Int(i));
                 }
             }
             Some(_) => return Err("Niespodziewany typ".into()),
