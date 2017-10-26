@@ -9,6 +9,7 @@ enum BencodedObject {
 }
 
 fn decode(encoded: String) -> BencodedObject {
+    let mut bencoded_type;
     for i in encoded.bytes() {
     }
     BencodedObject::Int(1)
