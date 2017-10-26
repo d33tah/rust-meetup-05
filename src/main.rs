@@ -12,7 +12,7 @@ fn decode(encoded: String) -> Result<BencodedObject,String> {
     let mut bencoded_type: Option<char>;
     for (c, n) in encoded.chars().enumerate() {
         if n == 0 {
-            bencoded_type = c;
+            bencoded_type = Some(c);
         }
     }
     Ok(BencodedObject::Int(1))
