@@ -13,7 +13,7 @@ fn decode(encoded: String) -> Result<BencodedObject,String> {
     for (i, n) in encoded.chars().enumerate() {
 
     }
-    BencodedObject::Int(1)
+    Ok(BencodedObject::Int(1))
 }
 
 fn main() {
