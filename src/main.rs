@@ -55,4 +55,8 @@ mod tests {
     fn test_unexpected_type() {
         decode("z".into()).unwrap();
     }
+
+    fn test_integer_but_not_integer() {
+        decode("iie".into()).unwrap();
+    }
 }
