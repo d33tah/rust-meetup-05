@@ -9,8 +9,6 @@ enum BencodedObject {
     Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
-impl Hash for std::collections::HashMap<BencodedObject, BencodedObject> {}
-
 fn decode(encoded: String) -> Result<BencodedObject, String> {
     let mut bencoded_type: Option<char> = None;
     let mut buf: Vec<char> = vec![];
