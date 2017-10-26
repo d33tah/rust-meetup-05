@@ -1,3 +1,4 @@
+use std::hash::Hash;
 use std::collections::HashMap;
 
 #[derive(Debug,PartialEq,Eq,Hash)]
