@@ -20,6 +20,8 @@ fn decode(encoded: String) -> Result<BencodedObject, String> {
                     buf.push(c);
                 } else {
                     let s: String = buf.iter().collect();
+                    let i: s.parse::<i32>().unwrap();
+                    return Ok(BencodedObject::Int(i))
                 }
             }
             Some(_) => return Err("Niespodziewany typ".into()),
