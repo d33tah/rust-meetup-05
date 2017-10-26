@@ -1,3 +1,7 @@
+enum BencodedObject {
+    Int,
+    ByteString
+}
+
 fn main() {
-    println!("Hello, world!");
 }
