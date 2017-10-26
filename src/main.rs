@@ -9,6 +9,8 @@ enum BencodedObject {
     Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
+impl Hash for std::collections::HashMap<BencodedObject, BencodedObject> {}
+
 fn decode(encoded: String) -> Result<BencodedObject, String> {
     let mut bencoded_type: Option<char> = None;
     let mut buf: Vec<char> = vec![];
@@ -29,7 +31,7 @@ fn decode(encoded: String) -> Result<BencodedObject, String> {
             }
             Some(_) => return Err("Niespodziewany typ".into()),
             None => {
-                if (n > 1) {
+                if n > 1 {
                     return Err("Nie ustawiono typu".into());
                 }
             }
