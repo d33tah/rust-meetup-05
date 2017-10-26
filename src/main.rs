@@ -16,7 +16,7 @@ fn decode(encoded: String) -> Result<BencodedObject,String> {
         }
         match bencoded_type {
             Some(x) => {},
-            None => if (n > 1) { return Err("Nie ustawiono typu") }
+            None => if (n > 1) { return Err("Nie ustawiono typu".into()) }
         }
     }
     Ok(BencodedObject::Int(1))
