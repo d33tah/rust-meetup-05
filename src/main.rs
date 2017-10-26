@@ -51,6 +51,11 @@ mod tests {
     }
 
     #[test]
+    fn test_integer_two_digits() {
+        assert_eq!(BencodedObject::Int(22), decode("i22e".into()).unwrap());
+    }
+
+    #[test]
     #[should_panic]
     fn test_unexpected_type() {
         decode("z".into()).unwrap();
@@ -71,5 +76,10 @@ mod tests {
     #[test]
     fn test_empty_buffer() {
         decode("ie".into()).unwrap();
+    }
+
+    #[test]
+    fn test_empty_string() {
+        decode("".into()).unwrap();
     }
 }
