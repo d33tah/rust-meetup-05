@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+#[derive(debug)]
 enum BencodedObject {
     Int(i32),
     ByteString(String),
@@ -12,4 +13,5 @@ fn decode(encoded: String) -> BencodedObject {
 }
 
 fn main() {
+    println!("{}", decode("i1e"));
 }
