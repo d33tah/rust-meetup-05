@@ -49,4 +49,9 @@ mod tests {
     fn test_integer_one() {
         assert_eq!(BencodedObject::Int(1), decode("i1e".into()).unwrap());
     }
+
+    #[test]
+    fn test_unexpected_type() {
+        decode("z".into());
+    }
 }
