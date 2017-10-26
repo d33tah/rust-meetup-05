@@ -52,6 +52,6 @@ mod tests {
 
     #[test]
     fn test_unexpected_type() {
-        decode("z".into());
+        decode("z".into()).unwrap();
     }
 }
