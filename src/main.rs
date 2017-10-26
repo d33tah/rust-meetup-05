@@ -34,7 +34,7 @@ fn decode(encoded: String) -> Result<BencodedObject, String> {
 
         }
     }
-    Err("Niedokonczony obiekt".into());
+    Err("Niedokonczony obiekt".into())
 }
 
 fn main() {
