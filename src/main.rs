@@ -34,9 +34,19 @@ fn decode(encoded: String) -> Result<BencodedObject, String> {
 
         }
     }
-    Ok(BencodedObject::Int(1))
+    Err("Niedokonczony obiekt".into());
 }
 
 fn main() {
     println!("{:?}", decode("i42e".into()));
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_integer_one() {
+        assert_eq!(Ok(Int(1)), decode("i1e"));
+    }
 }
