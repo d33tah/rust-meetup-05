@@ -8,7 +8,7 @@ enum BencodedObject {
 //    Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
-fn decode(encoded: String) -> BencodedObject {
+fn decode(encoded: String) -> Result<BencodedObject,Error> {
     let mut bencoded_type: char;
     for (i, n) in encoded.chars().enumerate() {
 
