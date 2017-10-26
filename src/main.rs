@@ -9,10 +9,10 @@ enum BencodedObject {
 }
 
 fn decode(encoded: String) -> Result<BencodedObject,String> {
-    let mut bencoded_type: char;
-    for (i, n) in encoded.chars().enumerate() {
-        if i > 0 && !bencoded_type {
-            return Err("Type not set".into());
+    let mut bencoded_type: Option<char>;
+    for (c, n) in encoded.chars().enumerate() {
+        if n == 0 {
+            bencoded_type = c;
         }
     }
     Ok(BencodedObject::Int(1))
