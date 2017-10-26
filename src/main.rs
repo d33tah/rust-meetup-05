@@ -19,7 +19,7 @@ fn decode(encoded: String) -> Result<BencodedObject, String> {
                 if c != 'e' {
                     buf.push(c);
                 } else {
-                    let s: String = buf.collect();
+                    let s: String = buf.iter().collect();
                 }
             }
             Some(_) => return Err("Niespodziewany typ".into()),
