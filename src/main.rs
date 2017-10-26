@@ -5,7 +5,7 @@ enum BencodedObject {
     Int(i32),
     ByteString(String),
     List(Vec<BencodedObject>),
-    Dict(HashMap<BencodedObject, BencodedObject>)
+//    Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
 fn decode(encoded: String) -> BencodedObject {
