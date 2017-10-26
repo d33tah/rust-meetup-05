@@ -1,4 +1,4 @@
-use std::hash::Hash;
+use std::hash::{Hash, Hasher};
 use std::collections::HashMap;
 
 #[derive(Debug,PartialEq,Eq,Hash)]
@@ -9,7 +9,11 @@ enum BencodedObject {
     Dict(HashMap<BencodedObject, BencodedObject>)
 }
 
-impl Hash for std::collections::HashMap<BencodedObject, BencodedObject> {}
+impl Hash for BencodedObject {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+    }
+
+}
 
 fn decode(encoded: String) -> Result<BencodedObject, String> {
     let mut bencoded_type: Option<char> = None;
